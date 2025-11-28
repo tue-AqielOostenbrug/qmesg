@@ -1,0 +1,7 @@
+#define MSG_MAX_LEN 512
+#define PASSWORD_MAX_LEN 30
+#define NICKNAME_MAX_LEN 30
+#define USERNAME_MAX_LEN 30
+#define REALNAME_MAX_LEN 30
+#define IP_MAX_LEN 16
+#define PORT_MAX_LEN 5
