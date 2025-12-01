@@ -1,5 +1,5 @@
 # qmesg - opensource IRCv3 messaging
-## Project structure
+## Project structure - OUTDATED
 ```
 .
 ├── Makefile
@@ -25,7 +25,7 @@
             ├── Makefile
             └── server.c
 ```
-## Goals
+## Goals - OUTDATED
 - [M] Prototype Linux client (Under constr.)
 - [S] Unit test Linux client
 - [S] Integrate Linux client into Docker testing pipeline (Under constr.)
@@ -41,7 +41,7 @@
 - [C] Integrate LORA into ESP32 client
 - [C] Integrate LORA into ESP32 server
 
-## Known issues
+## Known issues - OUTDATED
 *Linux Client:*
 - Socket buffer size mismatch leading to parsing issues
 - Unsafe parsing
