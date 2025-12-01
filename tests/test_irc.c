@@ -1,9 +1,7 @@
 #include <CUnit/Basic.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "../src/linux/client/c2s_irc.c"
-#include <string.h>
-#include <termios.h>
+#include "../src/linux/client/irc.c"
 
 // Global variables
 int write_fd = -1;

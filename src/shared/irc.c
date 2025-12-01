@@ -1,17 +1,18 @@
 #include <string.h>
 #include <unistd.h>
 #include <common.h> // Provides common magic literals
-#include <c2s_irc.h>
+#include <irc.h>
+
 
 /**
- * @file c2s_irc.c
+ * @file irc.c
  * @brief Provide IRC commands for Client to Server commnication.
  * 
  * Note that since write is used no fflush is required!
  * 
  * @author Aqiel Oostenbrug
- * @date November 19, 2025
- * @version 1.0
+ * @date November 26, 2025
+ * @version 1.1
  * @bug None known
  * @see https://modern.ircdocs.horse/
 */

@@ -3,7 +3,7 @@
 /* The suite initialization function.
  * Returns zero on success, non-zero otherwise.
  */
-int init_suite(void)
+int init_irc_suite(void)
 {
     return 0;
 }
@@ -12,7 +12,7 @@ int init_suite(void)
  * Closes the temporary file used by the tests.
  * Returns zero on success, non-zero otherwise.
  */
-int clean_suite(void)
+int clean_irc_suite(void)
 {
     return 0;
 }
@@ -37,7 +37,7 @@ int main()
       return CU_get_error();
 
    /* add a suite to the registry */
-   pSuite = CU_add_suite("Suite", init_suite, clean_suite);
+   pSuite = CU_add_suite("Suite", init_irc_suite, clean_irc_suite);
    if (NULL == pSuite) {
       CU_cleanup_registry();
       return CU_get_error();

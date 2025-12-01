@@ -5,6 +5,10 @@ SUBDIRS := $(shell find src -type f -name Makefile -exec dirname {} \;)
 all: $(SUBDIRS)
 
 clean: $(SUBDIRS)
+	rm *.o
 
 $(SUBDIRS):
 	$(MAKE) -C $@ $(MAKECMDGOALS)
+
+linux:
+	gcc src/linux/*.o src/shared/*.o -o linux.o

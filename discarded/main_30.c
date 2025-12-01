@@ -14,6 +14,7 @@
 #include <client_session.h>
 #include <command.h>
 #include <common.h>
+#include "main.h"
 
 #define TITLE "qmesg linux client\n"
 #define INTERRUPT_MSG "\nCaught interrupt\n"
@@ -23,30 +24,47 @@
 
 // Q: Separate viewer and controller functions from this model backend?
 
-/**
- * Print incoming input.
-*/
-void print_incoming(char *input) {
-    int i = 0;
-    int j = strcspn(input, "\n");
-    while (i < strlen(input)) {
-        printf("server> %.*s\n", j, input + i);
-        i += j + 1;
-        j = strcspn(input + i, "\n");
-    }
+// /**
+//  * Print incoming input.
+// */
+// void print_incoming(char *input) {
+//     int i = 0;
+//     int j = strcspn(input, "\n");
+//     while (i < strlen(input)) {
+        
+//         i += j + 1;
+//         j = strcspn(input + i, "\n");
+//     }
+// }
+
+void handle_outgoing(char output[512], session_t *sesh)
+{
+    fgets(output, MSG_MAX_LEN, stdin);
+    write(session_fd(sesh), output, strlen(output));
 }
 
-/**
- * Parse incoming input.
-*/
-void parse_incoming(int fd, char *input) {
+void handle_incoming(session_t *sesh, char input[512])
+{
+    // Receive responses (multiple are gathered in one read)
+    int fd = session_fd(sesh);
+    read(
+        fd,
+        input,
+        MSG_MAX_LEN
+    );
+    // Parse responses
     int i = 0;
-    int j = strcspn(input, "\n");
-    while (i < strlen(input)) {
-        parse(fd, input + i);
-        i += j + 1;
-        j = strcspn(input + i, "\n");
+    int j = strcspn(input, '\n'); // End of first response
+    char c; // Place holder for the response delimiter check
+    while (i < MSG_MAX_LEN && input[i] != '\0') { // If end not reached
+        parse(fd, input + i, j - i); // j - i gives len
+
+        // Update start and end for next response
+        i = j + 1; // Move to the first index after the last response
+        while ((c = input[i]) == ' ' || c == '\r' || c == '\n') i++; // Skip delimiters
+        j = strcspn(input + i, '\n'); // Move to end of the response
     }
+    memset(input, 0, MSG_MAX_LEN); // Clean input buffer for safety
 }
 
 /**
@@ -111,7 +129,7 @@ int main(int argc, char const *argv[])
     get_server(adr, &port);
 
     printf("> Provide credentials\n");
-    char password[PASSWORD_MAX_LEN + 1]; // +1 for \n
+    char password[PASSWORD_MAX_LEN + 1]; // +1 for \0
     char nickname[NICKNAME_MAX_LEN + 1];
     char username[USERNAME_MAX_LEN + 1];
     char realname[REALNAME_MAX_LEN + 1];
@@ -141,32 +159,14 @@ int main(int argc, char const *argv[])
     char input[MSG_MAX_LEN];
     char output[MSG_MAX_LEN];
 
-    printf("Starting session\n");
+    printf("> Starting session\n");
     
     while(1) {
         // Check if new data in feeds
         if (poll(fds, NUM_FEEDS, 500) > 0) {
-            // Handle incoming data
-            if(fds[1].revents & POLLIN) {
-                read(
-                    session_fd(sesh),
-                    input,
-                    MSG_MAX_LEN
-                );
-                print_incoming(input);
-                parse_incoming(sesh->fd, input);
-                memset(input, 0, MSG_MAX_LEN);
-            }
-            // Handle outgoing data
-            else if(fds[0].revents & POLLIN) {
-                // handle_outgoing(sesh);
-                // char msg_out[MSG_MAX_LEN];
-                fgets(output, MSG_MAX_LEN, stdin);
-                write(sesh->fd, output, strlen(output));
-            }
-            else { 
-                printf("An unprecedented event has occured\n");
-            }
+            if (fds[1].revents & POLLIN) handle_incoming(sesh, input);
+            else if(fds[0].revents & POLLIN) handle_o(output, sesh);
+            else printf("An unprecedented event has occured\n");
         }
     }
     printf("!!!Unreachable end has been reached!!!\n");

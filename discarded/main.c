@@ -9,6 +9,7 @@
 #include <arpa/inet.h>
 #include <poll.h>
 #include <fcntl.h>
+#include "user.c"
 
 #define TITLE "qmesg linux client\n"
 #define INTERRUPT_MSG "\nCaught interrupt\n"
@@ -22,6 +23,8 @@
 #define USERNAME_MAX_LEN 30
 #define REALNAME_MAX_LEN 30
 #define ADDR "127.0.0.1"
+
+// TODO: Separate viewer and controller functions from this model backend
 
 // global variables
 bool interrupted = false;
@@ -172,10 +175,8 @@ void print_incoming(void) {
     int j = strcspn(output, "\n");
     while (i < strlen(output)) {
         printf("server> %.*s\n", j, output + i);
-        // printf("%d\n", i + j + 2);
         i += j + 1;
         j = strcspn(output + i, "\n");
-
     }
 }
 
@@ -186,7 +187,6 @@ void handle_incoming(void) {
         MSG_MAX_LEN
     );
     print_incoming();
-    // printf("%s", output);
     handle_ping();
     memset(output, 0, MSG_MAX_LEN);
 }
@@ -211,14 +211,6 @@ void setup_terminal(void) {
 
 int main(int argc, char const *argv[])
 {
-    // printf("Hi\n");
-    // sprintf(output, 
-    //     "First line\r\n"
-    //     "Second line\r\n"
-    //     "Third line\r\n");
-    //
-    // print_incoming();
-    //
     printf(TITLE);
 
     printf("Set up signal handler\n");
@@ -237,11 +229,11 @@ int main(int argc, char const *argv[])
             }
             else  if(fds[0].revents & POLLIN) {
                 handle_outgoing();
+                continue;
             }
             else { 
                 printf("An unprecedented event has occured\n");
             }
         }
-        //printf("\n.");
     }
 }

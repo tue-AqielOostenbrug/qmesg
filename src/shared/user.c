@@ -1,5 +1,6 @@
 #include <user.h>
 #include <string.h>
+#include <stdlib.h>
 
 int strcheck(char * str, int max) {
     if (str == NULL) return 1;
@@ -26,9 +27,16 @@ user_t * user_init(user_t * usr, char * psw, char * nck, char * usn, char * rln)
     return usr;
 }
 
+int *user_destroy(user_t *usr) {
+    if (usr == NULL) return 0;
+    free(usr);
+    usr = NULL;
+    return 0;
+}
+
 int set_password(user_t * usr, char * psw) {
     if ((usr == NULL) || strcheck(psw, PASSWORD_MAX_LEN)) {
-        return -1;
+        return 1;
     }
     
     usr->password = strdup(psw);
@@ -38,7 +46,7 @@ int set_password(user_t * usr, char * psw) {
 
 int set_nickname(user_t * usr, char * nck) {
     if ((usr == NULL) || strcheck(nck, PASSWORD_MAX_LEN)) {
-        return -1;
+        return 1;
     }
     
     usr->nickname = strdup(nck);
@@ -48,7 +56,7 @@ int set_nickname(user_t * usr, char * nck) {
 
 int set_username(user_t * usr, char * usn) {
     if ((usr == NULL) || strcheck(usn, PASSWORD_MAX_LEN)) {
-        return -1;
+        return 1;
     }
     
     usr->username = strdup(usn);
@@ -58,7 +66,7 @@ int set_username(user_t * usr, char * usn) {
 
 int set_realname(user_t * usr, char * rln) {
     if ((usr == NULL) || strcheck(rln, PASSWORD_MAX_LEN)) {
-        return -1;
+        return 1;
     }
     
     usr->username = strdup(rln);
