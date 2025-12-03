@@ -1,47 +1,8 @@
 # qmesg - opensource IRCv3 messaging
-## Project structure - OUTDATED
-```
-.
-├── Makefile
-├── README.md
-├── lib
-└── src
-    ├── esp32
-    │   ├── client
-    │   │   ├── Makefile
-    │   │   └── client.c
-    │   ├── lora
-    │   │   ├── Makefile
-    │   │   └── client.c
-    │   └── server
-    │       ├── Makefile
-    │       └── server.c
-    └── linux
-        ├── client
-        │   ├── Dockerfile
-        │   ├── Makefile
-        │   └── client.c
-        └── server
-            ├── Makefile
-            └── server.c
-```
-## Goals - OUTDATED
-- [M] Prototype Linux client (Under constr.)
-- [S] Unit test Linux client
-- [S] Integrate Linux client into Docker testing pipeline (Under constr.)
-- [M] Prototype ESP32 client (Under constr.)
-- [S] Unit test ESP32 client
-- [S] Integrate ESP32 client into Docker testing pipeline
-- [C] Prototype Linux server
-- [C] Unit test Linux server
-- [C] Integrate Linux server into Docker testing pipeline
-- [C] Prototype ESP32 server
-- [C] Unit test ESP32 server
-- [C] Integrate ESP32 server into Docker testing pipeline
-- [C] Integrate LORA into ESP32 client
-- [C] Integrate LORA into ESP32 server
+## Documentation
+Please consult the Doxygen [pdf](/latex/refman.pdf) or the online guide
 
-## Known issues - OUTDATED
-*Linux Client:*
-- Socket buffer size mismatch leading to parsing issues
-- Unsafe parsing
+## Bugs
+- [Possible race conditions during authentication resulting in misses. (maybe sends to fast)](src/linux/main.c)
+- [Unexpected cuts in responses from the server](src/linux/main.c)
+- [Seems to get stuck in a livelock somewhere resulting in not being able to input commands](src/linux/main.c)
