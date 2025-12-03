@@ -1,0 +1,21 @@
+\doxysection{irc.\+h}
+\hypertarget{irc_8h_source}{}\label{irc_8h_source}\index{include/irc.h@{include/irc.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <common.h>}\ \textcolor{comment}{//\ Provides\ common\ magic\ literals}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_a9abf902380dffab7dcaefc009b89ed0f}{pass}}(\textcolor{keywordtype}{int}\ fd,\ \ \textcolor{keywordtype}{char}\ *password);}
+\DoxyCodeLine{00006\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_a265635f6aa0c73ca968e4d5e37501538}{nick}}(\textcolor{keywordtype}{int}\ fd,\ \ \textcolor{keywordtype}{char}\ *nickname);}
+\DoxyCodeLine{00007\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_a8c509c65d8b83d53959c78033be421ce}{user}}(\textcolor{keywordtype}{int}\ fd,\ \ \textcolor{keywordtype}{char}\ *username,\ \textcolor{keywordtype}{char}\ *realname);}
+\DoxyCodeLine{00008\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_a097a58f23c76b33eea7b0e53ea25b8ff}{ping}}(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{char}\ *token);}
+\DoxyCodeLine{00009\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_ad66be9c14e6b8509bb4c6b5e2948451f}{pong}}(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{char}\ *token)\ ;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_a6515d98e5466215d50e6e22259e580ed}{join}}(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{char}\ *channel);}
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_ac0c743dc45e329b87cb51d04be536f42}{quit}}(\textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_af056f222caa0e3ac619c1f0282923121}{privmsg}}(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{char}\ *channel,\ \textcolor{keywordtype}{char}\ *msg);}
+\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_ad4cb70eb6f26abc0640c04a7ebfe9c57}{list}}(\textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_a822f2902868f48208e211bc2a411e2d7}{topic}}(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{char}\ *channel);}
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{irc_8c_a958522c17567068813320e425cbf2a26}{part}}(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{char}\ *channel);}
+
+\end{DoxyCode}

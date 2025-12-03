@@ -9,8 +9,8 @@
  * @brief Provide responses for messages received from a server.
  * 
  * @author Aqiel Oostenbrug
- * @date November 30, 2025
- * @version 1.0
+ * @date December 3, 2025
+ * @version 1.1
  * @bug None known
 */
 
@@ -21,7 +21,7 @@
  * @return \p pong(fd, token)
  */
 static int respond_pong(int fd, char * token) {
-    printf("%s\n", token);
+    printf("PONG %s\n", token);
     return pong(fd, token);
 }
 
@@ -54,18 +54,18 @@ client_message cm_table[] = {
  * @param response response to parse
  * @param response_len length of the response to pars
  * @return  cm_table[i].func(fd, params) if successful<br>
+ *          0 if unmatched,<br>
  *          -1 if \p fd is invalid,<br>
  *          -2 if response is invalid,<br>
  *          -3 if response is too short,<br>
  *          -4 if response only includes a client message parameter,<br>
- *          -5 if response only includes a space as a client message parameter,<br>
- *          -6 if the response couldn't be matched
+ *          -5 if response only includes a space as a client message parameter
  */
 int parse(int fd, char * response, int response_len) { // Consider potential dirty parsing issues
     // Check parameters
     if (fd < 0) return -1;
     if (response == NULL) return -2;
-    if (response_len > 0) return -3;
+    if (response_len <= 0) return -3;
 
     // Handle "Client Messages"
     for (int i = 0; i < (sizeof(cm_table)/sizeof(client_message)); i++) { // Go through all CMs
@@ -93,12 +93,12 @@ int parse(int fd, char * response, int response_len) { // Consider potential dir
             params[params_len] = '\0'; // Ensure end added
 
             // Return response
-            printf("{MATCH}> "); // Matched
+            printf("{MATCH} "); // Matched
             return (int) cm_table[i].func(fd, params);
         }
     }
 
     // Handle unmatched messages
-    // printf("{MISS}> %s\n", response);
-    return -6;
+    printf("{MISS} %.*s\n", response_len, response);
+    return 0;
 }

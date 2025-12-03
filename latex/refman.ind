@@ -1,0 +1,130 @@
+\begin{theindex}
+
+  \item {\_session\_t}, \hyperpage{7}
+  \item {\_user\_t}, \hyperpage{7}
+
+  \indexspace
+
+  \item {Bug List}, \hyperpage{1}
+
+  \indexspace
+
+  \item {client\_message\_t}, \hyperpage{7}
+  \item {cm\_table}
+    \subitem {response.c}, \hyperpage{13}
+
+  \indexspace
+
+  \item {include/client\_session.h}, \hyperpage{9}
+  \item {include/command.h}, \hyperpage{9}
+  \item {include/common.h}, \hyperpage{9}
+  \item {include/irc.h}, \hyperpage{10}
+  \item {include/user.h}, \hyperpage{10}
+  \item {irc.c}
+    \subitem {join}, \hyperpage{17}
+    \subitem {list}, \hyperpage{17}
+    \subitem {nick}, \hyperpage{18}
+    \subitem {part}, \hyperpage{18}
+    \subitem {pass}, \hyperpage{18}
+    \subitem {ping}, \hyperpage{20}
+    \subitem {pong}, \hyperpage{20}
+    \subitem {privmsg}, \hyperpage{20}
+    \subitem {quit}, \hyperpage{21}
+    \subitem {topic}, \hyperpage{21}
+    \subitem {user}, \hyperpage{22}
+
+  \indexspace
+
+  \item {join}
+    \subitem {irc.c}, \hyperpage{17}
+
+  \indexspace
+
+  \item {list}
+    \subitem {irc.c}, \hyperpage{17}
+
+  \indexspace
+
+  \item {nick}
+    \subitem {irc.c}, \hyperpage{18}
+
+  \indexspace
+
+  \item {parse}
+    \subitem {response.c}, \hyperpage{12}
+  \item {part}
+    \subitem {irc.c}, \hyperpage{18}
+  \item {pass}
+    \subitem {irc.c}, \hyperpage{18}
+  \item {ping}
+    \subitem {irc.c}, \hyperpage{20}
+  \item {pong}
+    \subitem {irc.c}, \hyperpage{20}
+  \item {privmsg}
+    \subitem {irc.c}, \hyperpage{20}
+
+  \indexspace
+
+  \item {quit}
+    \subitem {irc.c}, \hyperpage{21}
+
+  \indexspace
+
+  \item {response.c}
+    \subitem {cm\_table}, \hyperpage{13}
+    \subitem {parse}, \hyperpage{12}
+
+  \indexspace
+
+  \item {session.c}
+    \subitem {session\_connect}, \hyperpage{14}
+    \subitem {session\_destroy}, \hyperpage{14}
+    \subitem {session\_disconnect}, \hyperpage{15}
+    \subitem {session\_fd}, \hyperpage{15}
+    \subitem {session\_init}, \hyperpage{15}
+  \item {session\_connect}
+    \subitem {session.c}, \hyperpage{14}
+  \item {session\_destroy}
+    \subitem {session.c}, \hyperpage{14}
+  \item {session\_disconnect}
+    \subitem {session.c}, \hyperpage{15}
+  \item {session\_fd}
+    \subitem {session.c}, \hyperpage{15}
+  \item {session\_init}
+    \subitem {session.c}, \hyperpage{15}
+  \item {set\_nickname}
+    \subitem {user.c}, \hyperpage{23}
+  \item {set\_password}
+    \subitem {user.c}, \hyperpage{24}
+  \item {set\_realname}
+    \subitem {user.c}, \hyperpage{24}
+  \item {set\_username}
+    \subitem {user.c}, \hyperpage{24}
+  \item {src/linux/main.c}, \hyperpage{10}
+  \item {src/linux/response.c}, \hyperpage{12}
+  \item {src/linux/session.c}, \hyperpage{13}
+  \item {src/shared/irc.c}, \hyperpage{16}
+  \item {src/shared/user.c}, \hyperpage{22}
+
+  \indexspace
+
+  \item {topic}
+    \subitem {irc.c}, \hyperpage{21}
+
+  \indexspace
+
+  \item {user}
+    \subitem {irc.c}, \hyperpage{22}
+  \item {user.c}
+    \subitem {set\_nickname}, \hyperpage{23}
+    \subitem {set\_password}, \hyperpage{24}
+    \subitem {set\_realname}, \hyperpage{24}
+    \subitem {set\_username}, \hyperpage{24}
+    \subitem {user\_destroy}, \hyperpage{25}
+    \subitem {user\_init}, \hyperpage{25}
+  \item {user\_destroy}
+    \subitem {user.c}, \hyperpage{25}
+  \item {user\_init}
+    \subitem {user.c}, \hyperpage{25}
+
+\end{theindex}

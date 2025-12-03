@@ -141,7 +141,7 @@ void make_connection(void) {
     }
     
     addr.sin_family = DOMAIN;
-    addr.sin_port = htons(PORT);
+    addr.sin_port = htons(TEST_PORT);
     addr.sin_addr.s_addr = inet_addr(ADDR);
 
     printf("Connect to server\n");

@@ -1,0 +1,35 @@
+\doxysection{client\+\_\+session.\+h}
+\hypertarget{client__session_8h_source}{}\label{client__session_8h_source}\index{include/client\_session.h@{include/client\_session.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CLIENT\_SESSION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CLIENT\_SESSION\_H}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Q:\ Should\ these\ be\ included\ here?}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Q:\ Can\ I\ remove\ some\ of\ these?}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <netinet/in.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ MAX\_ADDR\_LEN\ 100}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ DOMAIN\ AF\_INET\ }\textcolor{comment}{//\ IPv4}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ TYPE\ SOCK\_STREAM\ }\textcolor{comment}{//\ TCP}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ PROTOCOL\ 0\ }\textcolor{comment}{//\ use\ provided\ protocol\ configuration}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__session__t}{\_session\_t}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ adr;\ \textcolor{comment}{//\ Q:\ Should\ this\ be\ a\ pointer?}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ fd;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ status;\ \textcolor{comment}{//\ 0:\ open\ connection,\ 1:\ closed\ connection}}
+\DoxyCodeLine{00020\ \}\ session\_t;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ session\_t\ *\mbox{\hyperlink{session_8c_a034290ad848cc42bd4e4cb36fe448c72}{session\_init}}(session\_t\ *srv,\ \textcolor{keywordtype}{int}\ prt,\ \textcolor{keywordtype}{char}\ *\ adr,\ \textcolor{keywordtype}{int}\ adr\_len);}
+\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{session_8c_a38098bcd8a48c3cfdc1e97e9c2f3a4fc}{session\_destroy}}(session\_t\ *srv);}
+\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{session_8c_afb86f0f9702c597f8c066364e83c6575}{session\_connect}}(session\_t\ *srv);}
+\DoxyCodeLine{00025\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{session_8c_aca87dc524dc4b94cea47b9f9c0c9d577}{session\_disconnect}}(session\_t\ *srv);}
+\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{session_8c_ac504aaefec4ece4237a82a5bbca32212}{session\_fd}}(session\_t\ *sesh);}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ TODO:\ Make\ save\ and\ load\ function}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00029\ }
+
+\end{DoxyCode}

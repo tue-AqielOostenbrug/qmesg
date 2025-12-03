@@ -35,7 +35,7 @@ int pass(int fd,  char *password) {
     int len; // Q: Is the position necessary? Does the compiler move it up?
     if ((len = strlen(password)) + 1 + 5 + 2 > MSG_MAX_LEN) return 3;
     write(fd, "PASS ", 5); // Q: Should this become a magic literal?
-    write(fd, password, len);
+    write(fd, password, len); // X PIPELINE BROKE
     write(fd, "\r\n", 2);
     return 0;
 }
