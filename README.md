@@ -1,4 +1,25 @@
 # qmesg - opensource IRCv3 messaging
+## How to use - Linux
+```bash
+make
+```
+```bash
+make linux
+```
+```bash
+./linux.o
+```
+## How to recompile
+```bash
+make clean
+```
+```bash
+make
+```
+```bash
+make linux
+```
+
 ## Documentation
 Please consult the Doxygen [pdf](/latex/refman.pdf) or the online guide
 
