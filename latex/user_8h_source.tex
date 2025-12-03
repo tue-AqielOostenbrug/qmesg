@@ -1,0 +1,32 @@
+\doxysection{user.\+h}
+\hypertarget{user_8h_source}{}\label{user_8h_source}\index{include/user.h@{include/user.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ USER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ USER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ PASSWORD\_MAX\_LEN\ 30}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ NICKNAME\_MAX\_LEN\ 30}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ USERNAME\_MAX\_LEN\ 30}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ REALNAME\_MAX\_LEN\ 30}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__user__t}{\_user\_t}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{char}\ *password;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{char}\ *nickname;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{char}\ *username;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{char}\ *realname;}
+\DoxyCodeLine{00013\ \}\ user\_t;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ user\_t\ *\mbox{\hyperlink{user_8c_a784c8fc15188dddbaa8ddca0337e04a8}{user\_init}}(user\_t\ *usr,\ \textcolor{keywordtype}{char}\ *psw,\ \textcolor{keywordtype}{char}\ *nck,\ \textcolor{keywordtype}{char}\ *usn,\ \textcolor{keywordtype}{char}\ *rln);}
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{user_8c_ac4d191d57d7033eba9b12a6047be931f}{user\_destroy}}(user\_t\ *usr);}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ TODO:\ Make\ save\ and\ load\ function}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Setters\ for\ user\ values}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{user_8c_a4e5c458098f081ba76740455a878a4cf}{set\_password}}(user\_t\ *usr,\ \textcolor{keywordtype}{char}\ *psw);}
+\DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{user_8c_a14f5ed29ea7b52cea7f62593db051156}{set\_nickname}}(user\_t\ *usr,\ \textcolor{keywordtype}{char}\ *nck);}
+\DoxyCodeLine{00022\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{user_8c_a8e1012feaa0d8a7b5de3fdb4964cabc1}{set\_username}}(user\_t\ *usr,\ \textcolor{keywordtype}{char}\ *usn);}
+\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{user_8c_a1d73985b84b69b66e526f71e27a2a17b}{set\_realname}}(user\_t\ *usr,\ \textcolor{keywordtype}{char}\ *rln);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+
+\end{DoxyCode}

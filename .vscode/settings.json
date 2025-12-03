@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "irc_auth.h": "c",
+        "string.h": "c",
+        "in.h": "c",
+        "chrono": "c",
+        "functional": "c",
+        "irc.h": "c",
+        "unistd.h": "c",
+        "random": "c",
+        "format": "c",
+        "istream": "c",
+        "queue": "c",
+        "stack": "c",
+        "thread": "c",
+        "vector": "c",
+        "cmath": "c",
+        "user.h": "c"
+    }
+}

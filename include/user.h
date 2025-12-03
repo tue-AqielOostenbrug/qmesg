@@ -13,7 +13,8 @@ typedef struct _user_t {
 } user_t;
 
 extern user_t *user_init(user_t *usr, char *psw, char *nck, char *usn, char *rln);
-extern int *user_destroy(user_t *usr);
+extern void user_destroy(user_t *usr);
+// TODO: Make save and load function
 
 // Setters for user values
 extern int set_password(user_t *usr, char *psw);

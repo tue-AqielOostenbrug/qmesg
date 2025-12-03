@@ -1,9 +1,10 @@
+// TODO: Test user.c
 #include <CUnit/Basic.h>
 
 /* The suite initialization function.
  * Returns zero on success, non-zero otherwise.
  */
-int init_irc_suite(void)
+int init_user_suite(void)
 {
     return 0;
 }
@@ -12,7 +13,7 @@ int init_irc_suite(void)
  * Closes the temporary file used by the tests.
  * Returns zero on success, non-zero otherwise.
  */
-int clean_irc_suite(void)
+int clean_user_suite(void)
 {
     return 0;
 }
@@ -30,22 +31,22 @@ void test_dummy(void)
  */
 int main()
 {
-   CU_pSuite pSuite = NULL;
+   CU_pSuite userSuite = NULL;
 
    /* initialize the CUnit test registry */
    if (CUE_SUCCESS != CU_initialize_registry())
       return CU_get_error();
 
    /* add a suite to the registry */
-   pSuite = CU_add_suite("Suite", init_irc_suite, clean_irc_suite);
-   if (NULL == pSuite) {
+   userSuite = CU_add_suite("UserSuite", init_user_suite, clean_user_suite);
+   if (NULL == userSuite) {
       CU_cleanup_registry();
       return CU_get_error();
    }
 
    /* add the tests to the suite */
    /* ORDER IS IMPORTANT */
-   if (NULL == CU_add_test(pSuite, "dummy test passed", test_dummy))
+   if (NULL == CU_add_test(userSuite, "dummy test passed", test_dummy))
    {
       CU_cleanup_registry();
       return CU_get_error();
