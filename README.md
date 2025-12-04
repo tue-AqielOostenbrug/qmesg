@@ -24,6 +24,6 @@ make linux
 ```
 
 ## Bugs
-- [Possible race conditions during authentication resulting in misses. (maybe sends to fast)](src/linux/main.c)
-- [Unexpected cuts in responses from the server](src/linux/main.c)
-- [Seems to get stuck in a livelock somewhere resulting in not being able to input commands](src/linux/main.c)
+- [Authentication Race Condition (Linux) #3](https://github.com/tue-AqielOostenbrug/qmesg/issues/3#issue-3693864198)
+- [Unexpected cuts in responses from the server #5](https://github.com/tue-AqielOostenbrug/qmesg/issues/5#issue-3694024591)
+- Seems to get stuck in a livelock somewhere resulting in not being able to input commands (currently no examples)
