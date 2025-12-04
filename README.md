@@ -1,5 +1,8 @@
 # qmesg - opensource IRCv3 messaging
-## How to use - Linux
+## Documentation
+Please consult the Doxygen [pdf](/latex/refman.pdf) or the [online guide](https://tue-aqieloostenbrug.github.io/qmesg/html/)
+
+## [Linux] How to use
 ```bash
 make
 ```
@@ -19,9 +22,6 @@ make
 ```bash
 make linux
 ```
-
-## Documentation
-Please consult the Doxygen [pdf](/latex/refman.pdf) or the online guide
 
 ## Bugs
 - [Possible race conditions during authentication resulting in misses. (maybe sends to fast)](src/linux/main.c)
