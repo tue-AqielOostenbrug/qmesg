@@ -12,3 +12,10 @@ $(SUBDIRS):
 
 linux:
 	gcc src/linux/*.o src/shared/*.o -o linux.o
+
+build_server:
+	docker build --tag 'server' .
+
+server: build_server
+	echo "> Use ./unrealircd start to start the server"
+	docker run --network=host -it 'server'
