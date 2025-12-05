@@ -1,6 +1,6 @@
 # qmesg - opensource IRCv3 messaging
 ## Documentation
-Please consult the Doxygen [pdf](/docs/latex/refman.pdf) or the [online guide](https://tue-aqieloostenbrug.github.io/qmesg/docs/html/)
+Please consult the Doxygen [pdf](/docs/latex/refman.pdf) or the [online guide](https://tue-aqieloostenbrug.github.io/qmesg/html/)
 
 ## [Linux] How to use the client
 First compile the client as follows:
