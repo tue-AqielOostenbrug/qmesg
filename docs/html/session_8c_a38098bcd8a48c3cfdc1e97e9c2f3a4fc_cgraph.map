@@ -1,0 +1,5 @@
+<map id="session_destroy" name="session_destroy">
+<area shape="rect" id="Node000001" title="Destroy sesh." alt="" coords="5,5,121,31"/>
+<area shape="rect" id="Node000002" href="$session_8c.html#aca87dc524dc4b94cea47b9f9c0c9d577" title="Disconnect from the server specified by sesh." alt="" coords="169,5,305,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,16,156,18,150,18,121,21"/>
+</map>

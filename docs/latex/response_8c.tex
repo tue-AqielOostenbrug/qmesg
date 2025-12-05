@@ -1,0 +1,96 @@
+\doxysection{src/linux/response.c File Reference}
+\hypertarget{response_8c}{}\label{response_8c}\index{src/linux/response.c@{src/linux/response.c}}
+
+
+Provide responses for messages received from a server.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$command.\+h$>$}\newline
+{\ttfamily \#include $<$common.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$irc.\+h$>$}\newline
+Include dependency graph for response.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{response_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{response_8c_a76e987949f61ff55624281732fa9f8f2}{parse}} (int fd, char \texorpdfstring{$\ast$}{*}response, int response\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Execute command corresponding to {\ttfamily response} with {\ttfamily response\+\_\+len}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+client\+\_\+message \mbox{\hyperlink{response_8c_ae90efabf572fa5d934a0e8e1a6d012c9}{cm\+\_\+table}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provide responses for messages received from a server. 
+
+\begin{DoxyAuthor}{Author}
+Aqiel Oostenbrug 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+December 3, 2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+1 
+\end{DoxyVersion}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000002}{Bug}}]None known \end{DoxyRefDesc}
+
+
+\label{doc-func-members}
+\Hypertarget{response_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{response_8c_a76e987949f61ff55624281732fa9f8f2}\index{response.c@{response.c}!parse@{parse}}
+\index{parse@{parse}!response.c@{response.c}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \label{response_8c_a76e987949f61ff55624281732fa9f8f2} 
+int parse (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{response}{, }\item[{int}]{response\+\_\+len}{}\end{DoxyParamCaption})}
+
+
+
+Execute command corresponding to {\ttfamily response} with {\ttfamily response\+\_\+len}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & file descriptor for the command to write to \\
+\hline
+{\em response} & response to parse \\
+\hline
+{\em response\+\_\+len} & length of the response to pars \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cm\+\_\+table\mbox{[}i\mbox{]}.func(fd, params) if successful~\newline
+ 0 if unmatched,~\newline
+ -\/1 if {\ttfamily fd} is invalid,~\newline
+ -\/2 if response is invalid,~\newline
+ -\/3 if response is too short,~\newline
+ -\/4 if response only includes a client message parameter,~\newline
+ -\/5 if response only includes a space as a client message parameter 
+\end{DoxyReturn}
+
+
+\label{doc-var-members}
+\Hypertarget{response_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{response_8c_ae90efabf572fa5d934a0e8e1a6d012c9}\index{response.c@{response.c}!cm\_table@{cm\_table}}
+\index{cm\_table@{cm\_table}!response.c@{response.c}}
+\doxysubsubsection{\texorpdfstring{cm\_table}{cm\_table}}
+{\footnotesize\ttfamily \label{response_8c_ae90efabf572fa5d934a0e8e1a6d012c9} 
+client\+\_\+message cm\+\_\+table\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}PING"{}},\ 4,\ respond\_pong\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

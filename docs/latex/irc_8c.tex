@@ -1,0 +1,322 @@
+\doxysection{src/shared/irc.c File Reference}
+\hypertarget{irc_8c}{}\label{irc_8c}\index{src/shared/irc.c@{src/shared/irc.c}}
+
+
+Provide IRC commands for Client to Server commnication.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$common.\+h$>$}\newline
+{\ttfamily \#include $<$irc.\+h$>$}\newline
+Include dependency graph for irc.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{irc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{irc_8c_a9abf902380dffab7dcaefc009b89ed0f}{pass}} (int fd, char \texorpdfstring{$\ast$}{*}password)
+\begin{DoxyCompactList}\small\item\em write {\ttfamily password} to the server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_a265635f6aa0c73ca968e4d5e37501538}{nick}} (int fd, char \texorpdfstring{$\ast$}{*}nickname)
+\begin{DoxyCompactList}\small\item\em write {\ttfamily nickname} to the server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_a8c509c65d8b83d53959c78033be421ce}{user}} (int fd, char \texorpdfstring{$\ast$}{*}username, char \texorpdfstring{$\ast$}{*}realname)
+\begin{DoxyCompactList}\small\item\em write {\ttfamily username} and {\ttfamily realname} to the server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_a097a58f23c76b33eea7b0e53ea25b8ff}{ping}} (int fd, char \texorpdfstring{$\ast$}{*}token)
+\begin{DoxyCompactList}\small\item\em Ping the server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_ad66be9c14e6b8509bb4c6b5e2948451f}{pong}} (int fd, char \texorpdfstring{$\ast$}{*}token)
+\begin{DoxyCompactList}\small\item\em Pong the server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_a6515d98e5466215d50e6e22259e580ed}{join}} (int fd, char \texorpdfstring{$\ast$}{*}channel)
+\begin{DoxyCompactList}\small\item\em Join {\ttfamily server}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_ac0c743dc45e329b87cb51d04be536f42}{quit}} (int fd)
+\begin{DoxyCompactList}\small\item\em Terminate the connection to the server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_af056f222caa0e3ac619c1f0282923121}{privmsg}} (int fd, char \texorpdfstring{$\ast$}{*}channel, char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em write {\ttfamily msg} {\ttfamily channel} to the server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_ad4cb70eb6f26abc0640c04a7ebfe9c57}{list}} (int fd)
+\begin{DoxyCompactList}\small\item\em Request the list of channels. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_a822f2902868f48208e211bc2a411e2d7}{topic}} (int fd, char \texorpdfstring{$\ast$}{*}channel)
+\begin{DoxyCompactList}\small\item\em Request the topic of {\ttfamily channel}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{irc_8c_a958522c17567068813320e425cbf2a26}{part}} (int fd, char \texorpdfstring{$\ast$}{*}channel)
+\begin{DoxyCompactList}\small\item\em Request to leave {\ttfamily channel}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provide IRC commands for Client to Server commnication. 
+
+Note that since write is used no fflush is required!
+
+\begin{DoxyAuthor}{Author}
+Aqiel Oostenbrug 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 26, 2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+1 
+\end{DoxyVersion}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000004}{Bug}}]None known \end{DoxyRefDesc}
+\begin{DoxySeeAlso}{See also}
+\href{https://modern.ircdocs.horse/}{\texttt{https\+://modern.\+ircdocs.\+horse/}} 
+\end{DoxySeeAlso}
+
+
+\label{doc-func-members}
+\Hypertarget{irc_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{irc_8c_a6515d98e5466215d50e6e22259e580ed}\index{irc.c@{irc.c}!join@{join}}
+\index{join@{join}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily \label{irc_8c_a6515d98e5466215d50e6e22259e580ed} 
+int join (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Join {\ttfamily server}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em channel} & channel to join \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful,~\newline
+ 1 if {\ttfamily fd} is invalid,~\newline
+ 3 if {\ttfamily channel} is invalid,~\newline
+ 4 if message is too long 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_ad4cb70eb6f26abc0640c04a7ebfe9c57}\index{irc.c@{irc.c}!list@{list}}
+\index{list@{list}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{list()}{list()}}
+{\footnotesize\ttfamily \label{irc_8c_ad4cb70eb6f26abc0640c04a7ebfe9c57} 
+int list (\begin{DoxyParamCaption}\item[{int}]{fd}{}\end{DoxyParamCaption})}
+
+
+
+Request the list of channels. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em fd} & file descriptor to write to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if request send successfully,~\newline
+ 1 if {\ttfamily fd} is invalid 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_a265635f6aa0c73ca968e4d5e37501538}\index{irc.c@{irc.c}!nick@{nick}}
+\index{nick@{nick}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{nick()}{nick()}}
+{\footnotesize\ttfamily \label{irc_8c_a265635f6aa0c73ca968e4d5e37501538} 
+int nick (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{nickname}{}\end{DoxyParamCaption})}
+
+
+
+write {\ttfamily nickname} to the server. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em nickname} & nickname to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful,~\newline
+ 1 if {\ttfamily fd} is invalid,~\newline
+ 2 if {\ttfamily nickname} is invalid,~\newline
+ 3 if message is too long 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_a958522c17567068813320e425cbf2a26}\index{irc.c@{irc.c}!part@{part}}
+\index{part@{part}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{part()}{part()}}
+{\footnotesize\ttfamily \label{irc_8c_a958522c17567068813320e425cbf2a26} 
+int part (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Request to leave {\ttfamily channel}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em channel} & channel to leave \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful,~\newline
+ 1 if {\ttfamily fd} is invalid,~\newline
+ 2 if {\ttfamily channel} is invalid,~\newline
+ 3 if total message is too long 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_a9abf902380dffab7dcaefc009b89ed0f}\index{irc.c@{irc.c}!pass@{pass}}
+\index{pass@{pass}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{pass()}{pass()}}
+{\footnotesize\ttfamily \label{irc_8c_a9abf902380dffab7dcaefc009b89ed0f} 
+int pass (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{password}{}\end{DoxyParamCaption})}
+
+
+
+write {\ttfamily password} to the server. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em password} & password to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful,~\newline
+ 1 if {\ttfamily fd} is invalid,~\newline
+ 2 if {\ttfamily password} is invalid,~\newline
+ 3 if message is too long 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_a097a58f23c76b33eea7b0e53ea25b8ff}\index{irc.c@{irc.c}!ping@{ping}}
+\index{ping@{ping}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{ping()}{ping()}}
+{\footnotesize\ttfamily \label{irc_8c_a097a58f23c76b33eea7b0e53ea25b8ff} 
+int ping (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Ping the server. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em token} & token to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful,~\newline
+ 1 if {\ttfamily fd} is invalid,~\newline
+ 3 if {\ttfamily token} is invalid,~\newline
+ 4 if message is too long 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_ad66be9c14e6b8509bb4c6b5e2948451f}\index{irc.c@{irc.c}!pong@{pong}}
+\index{pong@{pong}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{pong()}{pong()}}
+{\footnotesize\ttfamily \label{irc_8c_ad66be9c14e6b8509bb4c6b5e2948451f} 
+int pong (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Pong the server. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em token} & token to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful,~\newline
+ 1 if {\ttfamily fd} is invalid,~\newline
+ 3 if {\ttfamily token} is invalid,~\newline
+ 4 if message is too long 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_af056f222caa0e3ac619c1f0282923121}\index{irc.c@{irc.c}!privmsg@{privmsg}}
+\index{privmsg@{privmsg}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{privmsg()}{privmsg()}}
+{\footnotesize\ttfamily \label{irc_8c_af056f222caa0e3ac619c1f0282923121} 
+int privmsg (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{channel}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+write {\ttfamily msg} {\ttfamily channel} to the server. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em channel} & channel to write \\
+\hline
+\mbox{\texttt{in}}  & {\em msg} & message to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if request send successfully,~\newline
+ 1 if {\ttfamily fd} is invalid,~\newline
+ 2 if {\ttfamily channel} is invalid,~\newline
+ 3 if {\ttfamily msg} is invalid,~\newline
+ 4 if total message is too long 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_ac0c743dc45e329b87cb51d04be536f42}\index{irc.c@{irc.c}!quit@{quit}}
+\index{quit@{quit}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{quit()}{quit()}}
+{\footnotesize\ttfamily \label{irc_8c_ac0c743dc45e329b87cb51d04be536f42} 
+int quit (\begin{DoxyParamCaption}\item[{int}]{fd}{}\end{DoxyParamCaption})}
+
+
+
+Terminate the connection to the server. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em token} & token to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful,~\newline
+ 1 if {\ttfamily fd} is invalid 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_a822f2902868f48208e211bc2a411e2d7}\index{irc.c@{irc.c}!topic@{topic}}
+\index{topic@{topic}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{topic()}{topic()}}
+{\footnotesize\ttfamily \label{irc_8c_a822f2902868f48208e211bc2a411e2d7} 
+int topic (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Request the topic of {\ttfamily channel}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em channel} & channel from which the topic to request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful,~\newline
+ 1 if {\ttfamily fd} is invalid,~\newline
+ 2 if {\ttfamily channel} is invalid,~\newline
+ 3 if total message is too long 
+\end{DoxyReturn}
+\Hypertarget{irc_8c_a8c509c65d8b83d53959c78033be421ce}\index{irc.c@{irc.c}!user@{user}}
+\index{user@{user}!irc.c@{irc.c}}
+\doxysubsubsection{\texorpdfstring{user()}{user()}}
+{\footnotesize\ttfamily \label{irc_8c_a8c509c65d8b83d53959c78033be421ce} 
+int user (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{username}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{realname}{}\end{DoxyParamCaption})}
+
+
+
+write {\ttfamily username} and {\ttfamily realname} to the server. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em fd} & file descriptor to write to \\
+\hline
+\mbox{\texttt{in}}  & {\em username} & username to write \\
+\hline
+\mbox{\texttt{in}}  & {\em realname} & realname to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful,~\newline
+ 1 if {\ttfamily fd} is invalid,~\newline
+ 2 if {\ttfamily username} is invalid,~\newline
+ 3 if {\ttfamily realname} is invalid,~\newline
+ 4 if message is too long 
+\end{DoxyReturn}

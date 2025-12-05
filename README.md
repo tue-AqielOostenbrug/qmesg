@@ -1,18 +1,20 @@
 # qmesg - opensource IRCv3 messaging
 ## Documentation
-Please consult the Doxygen [pdf](/latex/refman.pdf) or the [online guide](https://tue-aqieloostenbrug.github.io/qmesg/html/)
+Please consult the Doxygen [pdf](/docs/latex/refman.pdf) or the [online guide](https://tue-aqieloostenbrug.github.io/qmesg/docs/html/)
 
-## [Linux] How to use
+## [Linux] How to use the client
+First compile the client as follows:
 ```bash
 make
 ```
 ```bash
 make linux
 ```
+Now execute the binary:
 ```bash
 ./linux.o
 ```
-## How to recompile
+## [Linux] How to recompile the client
 ```bash
 make clean
 ```
@@ -23,10 +25,9 @@ make
 make linux
 ```
 
-## How to test with server
-Assuming:
-1. A Linux distribution is used
-2. Docker has been installed
+## [Linux] How to test with server
+Assuming Docker has been installed.
+
 The server can be started using:
 ```bash
 make server
@@ -36,6 +37,14 @@ Inside of the container then run:
 ./unrealircd start
 ```
 *You now connect to `127.0.0.1:6667` using the client.*
+
+## [Linux] How to generate the documentation
+Assuming doxygen has been installed.
+
+The documentation website and pdf can be compiled as follows:
+```bash
+make docs
+```
 ## Bugs
 - [Authentication Race Condition (Linux) #3](https://github.com/tue-AqielOostenbrug/qmesg/issues/3#issue-3693864198)
 - [Unexpected cuts in responses from the server #5](https://github.com/tue-AqielOostenbrug/qmesg/issues/5#issue-3694024591)

@@ -1,0 +1,21 @@
+<map id="src/linux/session.c" name="src/linux/session.c">
+<area shape="rect" id="Node000001" title="Manage TCP client&#45;side sessions." alt="" coords="338,5,466,31"/>
+<area shape="rect" id="Node000002" href="$client__session_8h_source.html" title=" " alt="" coords="190,79,304,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="378,31,288,75,286,70,373,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="328,79,390,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="397,30,376,68,373,64,393,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="415,79,474,105"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="410,29,432,66,427,65,408,34"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="498,79,591,105"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="427,29,509,72,504,72,426,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,87,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="214,108,96,150,94,144,212,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="110,153,195,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="234,104,182,145,179,141,229,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="219,153,276,178"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="249,103,250,138,245,135,245,107"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="300,153,394,178"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="265,103,321,143,315,143,263,108"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="418,153,484,178"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="282,103,406,147,401,148,281,108"/>
+</map>

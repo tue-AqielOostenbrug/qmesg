@@ -1,0 +1,9 @@
+<map id="src/shared/user.c" name="src/shared/user.c">
+<area shape="rect" id="Node000001" title="Manage user data." alt="" coords="57,5,178,31"/>
+<area shape="rect" id="Node000002" href="$user_8h_source.html" title=" " alt="" coords="5,79,62,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,31,61,71,58,67,101,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="86,79,149,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,29,120,64,115,62,116,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="173,79,235,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="133,29,181,69,175,69,131,34"/>
+</map>

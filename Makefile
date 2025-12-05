@@ -19,3 +19,7 @@ build_server:
 server: build_server
 	echo "> Use ./unrealircd start to start the server"
 	docker run --network=host -it 'server'
+
+docs:
+	doxygen Doxyfile
+	make -C docs/latex
