@@ -23,6 +23,19 @@ make
 make linux
 ```
 
+## How to test with server
+Assuming:
+1. A Linux distribution is used
+2. Docker has been installed
+The server can be started using:
+```bash
+make server
+```
+Inside of the container then run:
+```bash
+./unrealircd start
+```
+*You now connect to `127.0.0.1:6667` using the client.*
 ## Bugs
 - [Authentication Race Condition (Linux) #3](https://github.com/tue-AqielOostenbrug/qmesg/issues/3#issue-3693864198)
 - [Unexpected cuts in responses from the server #5](https://github.com/tue-AqielOostenbrug/qmesg/issues/5#issue-3694024591)
