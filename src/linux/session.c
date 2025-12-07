@@ -2,14 +2,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <netinet/tcp.h>
+#include <time.h>
+
+#define CONNECTION_DELAY 1
 
 /**
  * @file session.c
  * @brief Manage TCP client-side sessions.
  * 
  * @author Aqiel Oostenbrug
- * @date December 3, 2025
- * @version 1.0
+ * @date December 7, 2025
+ * @version 1.0.1
  * @bug None known
 */
 
@@ -57,6 +60,7 @@ int session_destroy(session_t *sesh) {
  */
 int session_connect(session_t *sesh) {
     if(((sesh->status) = connect(sesh->fd, (struct sockaddr *) &(sesh->adr), sizeof(sesh->adr))) == -1) return 1;
+    sleep(CONNECTION_DELAY);
     return 0;
 }
 
