@@ -9,8 +9,8 @@
  * @brief Provide responses for messages received from a server.
  * 
  * @author Aqiel Oostenbrug
- * @date December 3, 2025
- * @version 1.1
+ * @date December 7, 2025
+ * @version 1.2.1
  * @bug None known
 */
 
@@ -18,11 +18,14 @@
  * @brief Respond PONG with \p token to \p fd. 
  * @param fd file descriptor to respond to
  * @param token token to respond with
- * @return \p pong(fd, token)
+ * @return  1 if successful,<br>
+ *          2 otherwise
  */
 static int respond_pong(int fd, char * token) {
     printf("PONG %s\n", token);
-    return pong(fd, token);
+    int ret = pong(fd, token);
+    if (ret == 0) return 1;
+    return 2;
 }
 
 /**
@@ -54,7 +57,9 @@ client_message cm_table[] = {
  * @param response response to parse
  * @param response_len length of the response to pars
  * @return  cm_table[i].func(fd, params) if successful<br>
- *          0 if unmatched,<br>
+ *          0 if response is succesfully matched and its action successfully executed,<br>
+ *          1 if ping was matched,<br>
+ *          2 if response could not be matched,<br>
  *          -1 if \p fd is invalid,<br>
  *          -2 if response is invalid,<br>
  *          -3 if response is too short,<br>
@@ -91,14 +96,19 @@ int parse(int fd, char * response, int response_len) { // Consider potential dir
             char params[params_len + 1]; // Make room for param
             memcpy(params, response + params_start, params_len);
             params[params_len] = '\0'; // Ensure end added
+            
+            // Finish if succesful
+            printf("{MATCH} ");
+            int ret = (int) cm_table[i].func(fd, params); 
+            if (ret == 0 || ret == 1) return ret;
 
-            // Return response
-            printf("{MATCH} "); // Matched
-            return (int) cm_table[i].func(fd, params);
+            // Show miss otherwise
+            printf("Failed \n");
+            break;
         }
     }
 
     // Handle unmatched messages
     printf("{MISS} %.*s\n", response_len, response);
-    return 0;
+    return 2;
 }
